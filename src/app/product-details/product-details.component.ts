@@ -11,6 +11,7 @@ import { CartService } from '../cart.service'
 })
 export class ProductDetailsComponent implements OnInit {
   product;
+  shipping;
 
   constructor(
     private route : ActivatedRoute,
@@ -25,6 +26,15 @@ export class ProductDetailsComponent implements OnInit {
 
   addToChart(){
     this.cartService.addToCart(this.product);
+    this.getShippingPrices();
+  }
+
+  getShippingPrices(){
+    this.shipping = this.cartService.getShippingPrices();
+  }
+
+  confirmShipping(){
+    this.shipping = null;
   }
 
 }
