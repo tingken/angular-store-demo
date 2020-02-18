@@ -6,10 +6,10 @@
 
 <button (click)="addToChart()">buy</button>
 
-<div class="shipping" *ngIf="shipping">
-  <div *ngFor="let price of shipping | async">
-    <h3>{{ price.type }}</h3>
-    <h4>{{ price.price }}</h4>
+<div class="shipping" *ngIf="shippingCosts">
+  <div *ngFor="let cost of shippingCosts | async">
+    <h3>{{ cost.type }}</h3>
+    <h4>{{ cost.price | currency }}</h4>
   </div>
   <button (click)="confirmShipping()">ok</button>
 </div>
